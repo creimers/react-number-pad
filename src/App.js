@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import * as React from "react";
+import styled from "styled-components";
+import "./App.css";
+import NumberPad from "./NumberPad";
+
+const Wrapper = styled.div`
+  margin: 10px;
+`;
+
+const Value = styled.div`
+  text-align: right;
+  font-size: 100px;
+`;
 
 function App() {
+  const [value, setValue] = React.useState(0);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Wrapper>
+      <Value>{value}</Value>
+      <NumberPad onChange={setValue} />
+    </Wrapper>
   );
 }
 
